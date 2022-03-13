@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BiSearch, BiCaretDown, BiCheck } from "react-icons/bi";
 
 const DropDown = ({toggle, orderBy, onOrderByChange, sortBy, onSortByChange}) => {
@@ -24,7 +24,7 @@ const DropDown = ({toggle, orderBy, onOrderByChange, sortBy, onSortByChange}) =>
   </div>)
 }
 
-export const Search = ({setBooks,books,setErrorMessage,errorMessage, orderBy, onOrderByChange, sortBy, onSortByChange}) => {
+const Search = ({setBooks,books,setErrorMessage,errorMessage, orderBy, onOrderByChange, sortBy, onSortByChange}) => {
   const [toggleSort, setToggleSort] = useState(false);
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState('');
@@ -99,3 +99,5 @@ export const Search = ({setBooks,books,setErrorMessage,errorMessage, orderBy, on
         </div>
     )
 }
+
+export default Search;
