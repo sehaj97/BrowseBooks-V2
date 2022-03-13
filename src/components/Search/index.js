@@ -1,36 +1,34 @@
 import { useState, useEffect } from 'react';
 import { BiSearch, BiCaretDown, BiCheck } from "react-icons/bi";
 
-const DropDown = ({toggle}) => {
+const DropDown = ({toggle, orderBy, onOrderByChange, sortBy, onSortByChange}) => {
     if(!toggle){
         return null
     }
     return (    <div className="origin-top-right absolute right-0 mt-2 w-56
     rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
     <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-      <div
+      <div onClick={()=> {onSortByChange('title')}}
         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
-        role="menuitem">Book Name <BiCheck /></div>
-      <div
+        role="menuitem">Book Name {(sortBy === 'title')&&<BiCheck />}</div>
+      <div onClick={()=> {onSortByChange('first_publish_year')}}
         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
-        role="menuitem">Author Name  <BiCheck /></div>
-      <div
-        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
-        role="menuitem">Date <BiCheck /></div>
-      <div
+        role="menuitem">Date {(sortBy === 'first_publish_year')&&<BiCheck />}</div>
+      <div onClick={()=> {onOrderByChange('asc')}}
         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer border-gray-1 border-t-2"
-        role="menuitem">Asc <BiCheck /></div>
-      <div
+        role="menuitem">Asc {(orderBy === 'asc')&&<BiCheck />}</div>
+      <div onClick={()=> {onOrderByChange('desc')}}
         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
-        role="menuitem">Desc <BiCheck /></div>
+        role="menuitem">Desc {(orderBy === 'desc')&&<BiCheck />}</div>
     </div>
   </div>)
 }
 
-export const Search = ({setBooks,setErrorMessage,errorMessage}) => {
+export const Search = ({setBooks,books,setErrorMessage,errorMessage, orderBy, onOrderByChange, sortBy, onSortByChange}) => {
   const [toggleSort, setToggleSort] = useState(false);
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState('');
+
     function handleChange(e) {
         if (!e.target.value.length) {
             setErrorMessage(`${e.target.name} is required.`);
@@ -64,9 +62,11 @@ export const Search = ({setBooks,setErrorMessage,errorMessage}) => {
     async function getData() {
       const response = await fetch(`https://openlibrary.org/search.json?title=${query}&fields=title,author_name,isbn,first_publish_year`);
       const data = await response.json();
-
-      // store the data into our books variable
-      setBooks(data) ;
+      if(data){
+        // store the data into our books variable
+        setBooks(data.docs) ;
+      }
+      
     }
   }, [query]);
 
@@ -88,7 +88,11 @@ export const Search = ({setBooks,setErrorMessage,errorMessage}) => {
                         className="justify-center px-4 py-2 bg-teal-500 border-2 border-teal-500 text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center" id="options-menu" aria-haspopup="true" aria-expanded="true">
                         Sort By <BiCaretDown className="ml-2" />
                     </button>
-                    <DropDown toggle={toggleSort}/>
+                    <DropDown toggle={toggleSort}
+                              orderBy={orderBy} 
+                              onOrderByChange={(sortVal) => onOrderByChange(sortVal)} 
+                              sortBy={sortBy} 
+                              onSortByChange={(sortVal) => onSortByChange(sortVal)}/>
                     </div>
                 </div>
             </form>
