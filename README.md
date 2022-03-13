@@ -11,7 +11,8 @@
 
 # Application Links
 ## Version 2 [this version]:
-
+- Deployed Link: [https://browsebook-v2.herokuapp.com/](https://browsebook-v2.herokuapp.com/)
+- Github: [https://github.com/sehaj97/BrowseBooks-V2](https://github.com/sehaj97/BrowseBooks-V2)
 ## Version 1 [old]:
 - Github: [https://github.com/sehaj97/BrowseBook](https://github.com/sehaj97/BrowseBook)
 - Deployed Link: [http://browsebook.herokuapp.com/](http://browsebook.herokuapp.com/)
