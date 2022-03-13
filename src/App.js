@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ImBooks } from "react-icons/im";
-import { Card } from './components/Card';
-import { Search } from "./components/Search";
+import Card from './components/Card';
+import Search from "./components/Search";
 
 function App() {
   const [books, setBooks] = useState(null);
