@@ -19,7 +19,7 @@ function App() {
   }
   return (
     <div className="container bg-cyan-900 mx-auto mt-3 font-thin text-center">
-      <h1 className="text-3xl text-white"><ImBooks className="inline-block text-red-500" />BrowseBooks</h1>
+      <h1 className="text-6xl text-white"><ImBooks className="inline-block text-red-500" />BrowseBooks</h1>
       <Search setBooks={setBooks} 
       books={filteredBooks} 
       setErrorMessage={setErrorMessage} 
