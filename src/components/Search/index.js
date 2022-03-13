@@ -72,7 +72,7 @@ const Search = ({setBooks,books,setErrorMessage,errorMessage, orderBy, onOrderBy
 
     return(
         <div className="py-5 mx-2">
-            <form onSubmit={handleSubmit} className="mt-1 flex rounded-md shadow-sm">
+            <form onSubmit={handleSubmit}  autoComplete="off" className="mt-1 flex rounded-md shadow-sm">
                 <input type="text" name="query" id="query" onChange={handleChange} 
                 className="pl-4 py-2 focus:ring-indigo-500 focus:border-indigo-500 w-full sm:text-sm border-gray-300" placeholder="Search" />
                 
