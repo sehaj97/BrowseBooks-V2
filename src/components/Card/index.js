@@ -1,7 +1,7 @@
 import React from 'react';
-const Card = ({book, index}) => {
+const Card = ({book}) => {
     return( 
-          <li className="px-3 py-3 flex items-start bg-slate-200" key={book.title+index} role="navigation" tabIndex={0} aria-label={book.title ? 'details on book '+book.title: 'no title found'}>
+          <li className="px-3 py-3 flex items-start bg-slate-200" role="navigation" tabIndex={0} aria-label={book.title ? 'details on book '+book.title: 'no title found'}>
           <div className="flex-grow">
             <div className="flex justify-center grid grid-cols-1 items-center">
               <div className="flex-none font-medium text-2xl text-blue-500" tabIndex={0} aria-label={book.title ? book.title: 'no title found'}>{book.title ? book.title: 'no title found'}</div>
@@ -11,7 +11,6 @@ const Card = ({book, index}) => {
               <img src={book.isbn?`https://covers.openlibrary.org/b/isbn/${book.isbn[0]}-L.jpg`: require(`../../assets/images/nobook.jpg`)}
                     alt={'image Of book '+book.title}
                     className="img-fit"
-                    key={book.title + index}
                     tabIndex={0}
               />
             </div>

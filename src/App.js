@@ -30,7 +30,7 @@ function App() {
       onSortByChange={sortVal => {setSortBy(sortVal)}}/><ul className='divide-y divide-black grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 content-end mx-3'>
        { books ?
          books.map((book, index)=>(
-          <Card book={book} index={index}/>
+          <Card book={book} key={index}/>
          )) :
          <h1 className="text-3xl text-white">{errorMessage}</h1>
        }

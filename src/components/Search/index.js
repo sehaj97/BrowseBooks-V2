@@ -53,7 +53,9 @@ const Search = ({setBooks,books,setErrorMessage,errorMessage, orderBy, onOrderBy
 
   useEffect(() => {
     try {
-      getData()
+      if(query){
+        getData()
+      }
     } catch {
       setErrorMessage('something went wrong')
     }
