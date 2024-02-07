@@ -11,11 +11,11 @@
 
 # Application Links
 ## Version 2 [this version]:
-- Deployed Link: [https://browsebook-v2.herokuapp.com/](https://browsebook-v2.herokuapp.com/)
+- Deployed Link: [https://browsebooksv2.netlify.app/](https://browsebooksv2.netlify.app/)
 - Github: [https://github.com/sehaj97/BrowseBooks-V2](https://github.com/sehaj97/BrowseBooks-V2)
 ## Version 1 [old]:
 - Github: [https://github.com/sehaj97/BrowseBook](https://github.com/sehaj97/BrowseBook)
-- Deployed Link: [http://browsebook.herokuapp.com/](http://browsebook.herokuapp.com/)
+- Deployed Link: [https://browsebooksv2.netlify.app/](https://browsebooksv2.netlify.app/)
 
 # Answers to Technical Questions
 
